@@ -1,7 +1,17 @@
 import React from "react";
 import "../App.css";
 
-const LoginPage: React.FC = () => {
+interface LoginPageProps {
+  handleUsername: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handlePassword: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSubmit: React.FormEventHandler<HTMLFormElement> | undefined;
+}
+
+const LoginPage: React.FC<LoginPageProps> = ({
+  handleUsername,
+  handlePassword,
+  handleSubmit,
+}) => {
   return (
     <div className="LoginPage">
       <div className="login-page-header">
@@ -10,18 +20,28 @@ const LoginPage: React.FC = () => {
       </div>
 
       {/* login form */}
-      <form className="login-form">
+      <form className="login-form" onSubmit={handleSubmit}>
         <div className="input-group">
           <label htmlFor="username" className="login-label">
             Username
           </label>
-          <input type="text" id="username" className="login-input" />
+          <input
+            type="text"
+            id="username"
+            onChange={handleUsername}
+            className="login-input"
+          />
         </div>
         <div className="input-group">
           <label htmlFor="password" className="login-label">
             Password
           </label>
-          <input type="password" id="password" className="login-input" />
+          <input
+            type="password"
+            id="password"
+            className="login-input"
+            onChange={handlePassword}
+          />
         </div>
         <button type="submit" className="login-button">
           Login
