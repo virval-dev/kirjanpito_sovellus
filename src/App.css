@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100vw;
+  height: 100svh;
+  background-color: rgb(96, 102, 114);
+  color: azure;
+}
+
+h1 {
+  margin: 1rem;
+  font-size: 2.5rem;
+  color:rgb(16, 64, 92)
+}
+
+.component-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Login Page */
+
+.LoginPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 25%;
+  height: 60%;
+
+  background-color: rgb(136, 147, 170);
+  color: azure;
+
+  border: 5px double rgb(31, 79, 85);
+  border-radius: 10px;
+
+  margin-top: 3em;  
+}
+
+.login-page-header {
+  margin: 2em;
+  width: 100%;
+  text-align: center;
+}
+
+.login-page-title {
+  font-size: 1.5rem;
+  color: rgb(32, 82, 124)
+}
+
+.login-page-subtitle {
+  font-size: 1rem;
+  margin: 0.75em;
+  color:rgb(32, 118, 189);
+}
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+
+  /* CONTROLS INPUTS WIDTH */
+  width: 60%;
+
+  margin: 1em;
+}
+
+.login-label {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.login-input {
+  margin-top: 0.3em;  
+  font-size: 1.2rem;
+
+  border-radius: 5px; 
+  border: none;
+}
+
+.login-button {
+  font-size: 1.2rem;
+  padding: 0.25em 0.5em;
+  margin-top: 1em;
+}
