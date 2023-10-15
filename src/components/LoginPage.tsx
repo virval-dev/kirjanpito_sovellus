@@ -1,17 +1,54 @@
-import React from "react";
+import React, { useState } from "react";
 import "../App.css";
 
+// Typing interfaces
 interface LoginPageProps {
   handleUsername: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handlePassword: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSubmit: React.FormEventHandler<HTMLFormElement> | undefined;
+  handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }
 
-const LoginPage: React.FC<LoginPageProps> = ({
-  handleUsername,
-  handlePassword,
-  handleSubmit,
-}) => {
+interface User {
+  userId: number;
+  username: string;
+  password: string;
+  isLogged: boolean;
+}
+
+// Define the component
+const LoginPage: React.FC<LoginPageProps> = ({}) => {
+  // Define state variables
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [userId, setUserId] = useState<number>(0);
+  const [users, setUsers] = useState<User[]>([]); // Change type to User[] and initialize with empty array
+
+  // Define functions
+  const handleUsername = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUsername(e.target.value);
+  };
+
+  const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setUsers((users: User[]) => {
+      return [
+        ...users,
+        {
+          userId: userId + 1,
+          username: username,
+          password: password,
+          isLogged: true,
+        },
+      ];
+    });
+  };
+
+  console.log(users);
   return (
     <div className="LoginPage">
       <div className="login-page-header">
